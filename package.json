@@ -1,0 +1,32 @@
+{
+  "name": "letresearch",
+  "version": "1.0.0",
+  "description": "IR final project - Let's researh",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanC1993/Let-research.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ryanC1993/Let-research/issues"
+  },
+  "homepage": "https://github.com/ryanC1993/Let-research#readme",
+  "dependencies": {
+    "async": "^2.4.1",
+    "cheerio": "^1.0.0-rc.1",
+    "eventproxy": "^0.3.5",
+    "express": "^4.15.3",
+    "fs": "0.0.1-security",
+    "node-phantom": "^0.2.5",
+    "phantomjs": "^2.1.7",
+    "request": "^2.81.0",
+    "superagent": "^3.5.2"
+  }
+}
