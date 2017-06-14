@@ -4,6 +4,7 @@ const cheerio = require('cheerio');
 const Nightmare = require('nightmare');
 const vo = require('vo');
 const fs = require("fs");
+const path = require('path');
 
 const URL = "https://www.usnews.com/best-graduate-schools/top-science-schools/computer-science-rankings";
 const page = ['','/page+2','/page+3','/page+4'];
@@ -44,6 +45,17 @@ var getSchoolDetailInfo = function * (nightmareloop, forIndex) {
             console.log(school_JSONdata[index]);
           }
         });
+        if (index == 99){
+          let filePath = path.join(__dirname, 'schoolData', 'csRanking.json');
+          fs.writeFile(filePath, JSON.stringify(school_JSONdata), function(err){
+            if(err){
+              console.log('Can\'t record.');
+            }
+            else{
+              console.log('Finish recording');
+            }
+          });// End write file
+        }
       })
       .catch(function (error) {
       console.error('Search school failed:', error);
@@ -84,6 +96,9 @@ var getTopOneHundredUniversity = function * () {
             console.log('Get detail info of school at all!');
           });
         }
+      })
+      .then(function (){
+        // To mongoDB
       })
       .catch(function (error) {
       console.error('Search failed:', error);
