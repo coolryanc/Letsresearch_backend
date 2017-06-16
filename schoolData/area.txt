@@ -1,0 +1,29 @@
+AI
+Artificial intelligence: AAAI,IJCAI
+Computer vision: CVPR,ECCV,ICCV
+Machine learning & data mining: ICML,KDD,NIPS
+Natural language processing: ACL,EMNLP,NAACL
+The web & information retrieval: SIGIR,WWW
+Systems
+Computer architecture: ASPLOS,ISCA,MICRO
+Computer networks: INFOCOM,SIGCOMM,NSDI
+Computer security: CCS,IEEE S&P ("Oakland"),USENIX Security
+Databases: SIGMOD,VLDB
+Design automation: DAC,ICCAD
+Embedded and real-time systems: EMSOFT,RTAS,RTSS
+High-performance computing: HPDC,ICS,SC
+Mobile computing: MobiCom,MobiSys,SenSys
+Measurement & performance analysis: IMC,SIGMETRICS
+Operating systems: EuroSys,OSDI,SOSP,USENIX Annual Technical Conference
+Programming languages: PLDI,POPL
+Software engineering: FSE,ICSE
+Theory
+Algorithms & complexity: FOCS,SODA,STOC
+Cryptography: CRYPTO,EuroCrypt
+Logic and verification: CAV,LICS
+Interdisciplinary Areas
+Computational bio & bioinformatics: ISMB,RECOMB
+Computer graphics: SIGGRAPH,SIGGRAPH Asia
+Human-computer interaction: CHI,UbiComp,UIST
+Robotics: ICRA,IROS,RSS
+Visualization: VIS,VR
