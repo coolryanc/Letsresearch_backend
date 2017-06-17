@@ -31,7 +31,20 @@ app.get('/submit-data', function (req, res) {
 
 
 app.get('/api/test', function (req, res) {
-  let filePath = path.join(__dirname, 'schoolData', 'csRanking.json')
+  let filePath = path.join(__dirname, 'schoolData', 'test.json');
+  fs.readFile(filePath,'utf8',function(err,data){
+    if(err){
+      console.log('Read json error');
+    }
+    else{
+      let jsonData = JSON.parse(data);
+      res.jsonp(jsonData);
+    }
+  });
+});
+
+app.get('/api/keywords', function (req, res) {
+  let filePath = path.join(__dirname, 'schoolData', 'keywords.json');
   fs.readFile(filePath,'utf8',function(err,data){
     if(err){
       console.log('Read json error');
