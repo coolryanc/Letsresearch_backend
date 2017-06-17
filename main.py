@@ -10,6 +10,7 @@ def main():
     QSjsonData = json.loads(QSRANKING_FILE.read())
     ARTICLE = open('./schoolData/articles.json', 'r')
     articlesJson = json.loads(ARTICLE.read())
+    ARTICLE.close()
     topUniversity = []
     chicken = []
     for index, school in enumerate(QSjsonData['data']):
@@ -25,6 +26,33 @@ def main():
     print len(chicken)
     for i in chicken:
         print i
+
+   
+    # write chicken
+    # with open('./schoolData/chicken.txt','w') as file:
+    #     for item in chicken:
+    #         file.write(item.encode("utf-8")+"\n")
+
+    #read chicken
+    with open('./schoolData/chicken.txt','r') as file:
+        lines=file.readlines()
+        print lines[0].strip().split("//")
+        chicken_new=[]
+        for item in lines:
+            chicken_new.append(item.strip().split("//")[1])
+
+
+    for item in articlesJson:
+        rename = item['institution']
+        if rename in chicken:
+            index = chicken.index(rename)
+            item['institution']=chicken_new[index]
+
+    with open('./schoolData/articles.json', 'w') as article:
+        json.dump(articlesJson, article)
+
+
+        
     # area = {}
     # for item in articlesJson:
     #     if item['name'] not in area:
@@ -37,6 +65,8 @@ def main():
     #         print i
     #     else:
     #         break
+
+
 
 def generateAreaJson():
     area = {'AI':[], 'Systems':[], 'Theory':[], 'Interdisciplinary Areas':[]}
