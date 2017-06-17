@@ -1,0 +1,120 @@
+VU Amsterdam//Vrije Universiteit Amsterdam
+University of Illinois at Chicago//University of Illinois, Chicago (UIC)
+University of Maryland - College Park//University of Maryland, College Park
+IIT Delhi//Indian Institute of Technology Delhi (IITD)
+University of Montreal//Université de Montréal
+University of Iowa//Iowa State University
+DIKU//University of Copenhagen
+UNSW//The University of New South Wales (UNSW Sydney)
+Rutgers University//Rutgers University - New Brunswick
+CUNY//City University of New York
+University at Buffalo//University at Buffalo SUNY
+National University of Singapore//National University of Singapore (NUS)
+IIT Bombay//Indian Institute of Technology Bombay (IITB)
+Chinese University of Hong Kong//The Chinese University of Hong Kong (CUHK)
+Massachusetts Institute of Technology//Massachusetts Institute of Technology (MIT)
+University of Edinburgh//The University of Edinburgh
+University of Maryland - Baltimore County//University of Maryland, Baltimore County
+California Institute of Technology//California Institute of Technology (Caltech)
+Nanyang Technological University//Nanyang Technological University, Singapore (NTU)
+University of Delaware//University of Delaware
+University of California - Irvine//University of California, Irvine
+University of Wisconsin - Madison//University of Wisconsin-Madison
+IISc Bangalore//Indian Institute of Science (IISc) Bangalore
+University of California - Los Angeles//University of California, Los Angeles (UCLA)
+ETH Zurich//ETH Zurich - Swiss Federal Institute of Technology
+University of Melbourne//University of Melbourne
+Virginia Tech//Virginia Polytechnic Institute and State University
+College of William and Mary//College of William & Mary
+Polytechnic University of Catalonia//Universitat Politècnica de Catalunya
+University of Buenos Aires//Universidad de Buenos Aires (UBA)
+TU Darmstadt//Technische Universität Darmstadt
+Queen’s University//Queen's University at Kingston
+University of California - Riverside//University of California, Riverside
+TU Dresden//Technische Universität Dresden
+Ecole Normale Superieure de//Ecole Normale Supérieure de Cachan
+University of Sydney//The University of Sydney
+Oregon State University//Oregon State University
+TU Delft//Delft University of Technology
+Ohio State University//The Ohio State University
+Hong Kong University of Science and Technology//The Hong Kong University of Science and Technology
+Ecole Normale Superieure//École Normale Supérieure de Lyon
+University of California - Berkeley//University of California, Berkeley (UCB)
+University of Queensland//The University of Queensland
+IMDEA Software Institute//IMDEA Software Institute
+University of California - San Diego//University of California, San Diego (UCSD)
+University of Athens//National and Kapodistrian University of Athens
+University of California - Santa//University of California, Santa Cruz
+Hebrew University of Jerusalem//The Hebrew University of Jerusalem
+University of North Carolina//University of North Carolina, Chapel Hill
+Clemson University//Clemson University
+TU Munich//Technical University of Munich
+TU Eindhoven//Eindhoven University of Technology
+University of Adelaide//The University of Adelaide
+University of Salerno//University of Salerno
+NJIT//NJIT
+Sharif University of Technology//sharif university of technology
+Drexel University//Drexel University
+Australian National University//The Australian National University
+New York University//New York University (NYU)
+University of Oregon//University of Oregon
+Stony Brook University//Stony Brook University, State University of New York
+University of Arizona//University of Arizona
+University of Texas at Dallas//University of Texas Dallas
+IIIT Delhi//Indian Institute of Technology Delhi (IITD)
+University of California - Santa Barbara//University of California, Santa Barbara (UCSB)
+IIT Kanpur//Indian Institute of Technology Kanpur (IITK)
+EPFL//Ecole Polytechnique Fédérale de Lausanne (EPFL)
+Boise State University//Boise State 
+IIIT Bangalore//International Institute of Information Technology, Bangalore
+University of Western Australia//The University of Western Australia
+Ariel University//Ariel University
+Indiana University//Indiana University Bloomington
+Universidade de Lisboa//Universidade de Lisboa
+Binghamton University//Binghamton University
+University of Kentucky//University of Kentucky
+Rochester Institute of Technology//Rochester Institute of Technology
+IT University of Copenhagen//University of Copenhagen
+University of Auckland//The University of Auckland
+IIT Kharagpur//Indian Institute of Technology Kharagpur (IIT-KGP)
+IIT Gandhinagar//IIT Gandhinagar
+University College London//UCL (University College London)
+University of Massachusetts Lowell//University of Massachusetts Lowell
+Ecole Normale Superieure de Lyon//Ecole Normale Superieure de Lyon
+IIIT Hyderabad//IIIT Hyderabaㄥ
+Auburn University//Auburn University
+Università della Svizzera italiana//USI Università della Svizzera italiana / USI University of Lugano
+IIT Madras//Indian Institute of Technology Madras (IITM)
+University of Wroclaw//University of Wroclaw
+IIT Guwahati//Indian Institute of Technology Guwahati (IITG)
+University of Tennessee//The University of Tennessee, Knoxville
+CMI//Chennai Mathematical Institute
+RWTH Aachen//RWTH Aachen University
+Université libre de Bruxelles//Universite libre de Bruxelles
+King Abdullah University of Science and Technology//King Abdullah University of Science & Technology
+IST Austria//IST Austria
+University of California - Davis//University of California, Davis
+Max Planck Institute//Max Planck Institute
+University of Nebraska//University of Nebraska-Lincoln
+University of Passau//University of Passau
+University of Massachusetts Boston//University of Massachusetts - Boston
+Tulane University//Tulane University
+Western University//The University of Western Ontario
+University of Texas at Arlington//University of Texas at Arlington
+Naval Postgraduate School//Naval Postgraduate School
+Kansas State University//Kansas State University
+Toyota Technological Institute at Chicago//Toyota Technological Institute at Chicago
+IIT Roorkee//Indian Institute of Technology Roorkee (IITR)
+Boston College//Boston College
+University of Nevada//University of Nevada
+New Mexico State University//New Mexico State University
+CWI//CWI
+American University of Beirut//American University of Beirut (AUB)
+Indiana University-Purdue University Indianapolis//Indiana University Bloomington
+University of Georgia//University of Georgia
+Brandeis University//Brandeis University
+Virginia Commonwealth University//Virginia Commonwealth University
+OHSU//OHSU
+NYU Shanghai//NYU Shanghai
+IIT Hyderabad//IIT Hyderabad
+BITS Pilani//BITS Pilani
