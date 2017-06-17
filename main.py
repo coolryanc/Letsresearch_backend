@@ -13,18 +13,18 @@ def main():
     topUniversity = []
     chicken = []
     for index, school in enumerate(QSjsonData['data']):
-        if index == 500:
-            break
-        else:
-            topUniversity.append(school['title'])
-    for item in articlesJson:
-        rename = item['institution']
-        if rename not in topUniversity:
-            if rename not in chicken:
-                chicken.append(rename)
-    print len(chicken)
-    for i in chicken:
-        print i
+        school_name =  school['title'].encode('utf-8')
+        topUniversity.append(school_name)
+    write = open('./schoolData/schoolAddress.json','w')
+    json.dump(topUniversity, write)
+    # for item in articlesJson:
+    #     rename = item['institution']
+    #     if rename not in topUniversity:
+    #         if rename not in chicken:
+    #             chicken.append(rename)
+    # print len(chicken)
+    # for i in chicken:
+    #     print i
     # area = {}
     # for item in articlesJson:
     #     if item['name'] not in area:
@@ -42,14 +42,40 @@ def generateAreaJson():
     area = {'AI':[], 'Systems':[], 'Theory':[], 'Interdisciplinary Areas':[]}
     with open('./schoolData/area.txt', 'r') as f:
         lines = f.read().splitlines()
+        keywords = []
         for item in lines:
             if item in area:
                 pass
             else:
                 conf = item.split(': ')
-                for c in conf[1:]:
-                    print c
+                keywords.append(conf[0])
+                # for c in conf[1:]:
+                #     print c
+        write = open('./schoolData/keywords.json','w')
+        json.dump(keywords, write)
+
+def getLatLong():
+    QSRANKING_FILE = open('./schoolData/schoolInfo.json', 'r') # From QS ranking Top 100
+    QSjsonData = json.loads(QSRANKING_FILE.read())
+    LATLONG = open('./schoolData/LatLong.json', 'r')
+    latlongJson = json.loads(LATLONG.read())
+    for index, school in enumerate(QSjsonData['data']):
+        if school['title'] == latlongJson[index]['schoolName']:
+            lenll = len(latlongJson[index]['latlng'])-1
+            latlong = latlongJson[index]['latlng'][1:lenll].split(', ')
+            school['latlong'] = latlong
+            print school['latlong']
+
+def splitArticeleJson():
+    ARTICLES_FILE = open('./schoolData/articles.json', 'r') # From QS ranking Top 100
+    jsonData = json.loads(ARTICLES_FILE.read())
+    for item in jsonData:
+        item['keyWord'] = item['title']
+    write = open('./schoolData/articles.json','w')
+    json.dump(jsonData, write)
 
 if __name__ == '__main__':
-    main()
+    # main()
     # generateAreaJson()
+    # getLatLong()
+    splitArticeleJson()
