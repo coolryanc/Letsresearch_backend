@@ -5,9 +5,12 @@ const fs = require('fs');
 const path = require('path');
 
 var app = express();
+const queryCalc = require('./query');
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
+// Resolve CROS problem
 app.all('*',function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
@@ -20,42 +23,14 @@ app.all('*',function (req, res, next) {
   }
 });
 
-app.get('/', function (req, res) {
-    res.send("<html><body><h1>Hello World..</h1></body></html>");
-});
-
 app.get('/submit-data', function (req, res) {
-    console.log(req.query.searchString);
-    res.send(req.query.searchString);
+    console.log(req.query.searchString); // Get user query
+    queryCalc.getUserQuery(req.query.searchString);
+    res.sendStatus(200);
 });
 
-
-app.get('/api/test', function (req, res) {
-  let filePath = path.join(__dirname, 'schoolData', 'test.json');
-  fs.readFile(filePath,'utf8',function(err,data){
-    if(err){
-      console.log('Read json error');
-    }
-    else{
-      let jsonData = JSON.parse(data);
-      res.jsonp(jsonData);
-    }
-  });
-});
-
-app.get('/api/keywords', function (req, res) {
-  let filePath = path.join(__dirname, 'schoolData', 'keywords.json');
-  fs.readFile(filePath,'utf8',function(err,data){
-    if(err){
-      console.log('Read json error');
-    }
-    else{
-      let jsonData = JSON.parse(data);
-      res.jsonp(jsonData);
-    }
-  });
-});
-
+app.use(require('./query-router'));
+app.use(require('./keyword-router'));
 
 app.listen(3001, function () {
     console.log('listening in http://localhost:3001');
