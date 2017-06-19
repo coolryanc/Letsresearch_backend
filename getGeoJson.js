@@ -9,12 +9,11 @@ exports.generateGEOJSON = function(str) {
       console.log('Read json error');
     }
     else{
-      console.log('hu');
       let jsonData = JSON.parse(data);
       let geodata = [];
       for (let index in jsonData['data']){
         let detail = {
-          title: jsonData['data'][index].title + jsonData['data'][index].latlong,
+          title: jsonData['data'][index].title,
           icon: "town-hall",
           lat: parseFloat(jsonData['data'][index].latlong[0]),
           lng: parseFloat(jsonData['data'][index].latlong[1]),
