@@ -1,6 +1,9 @@
+const GeoJSON = require('geojson');
+const fs = require('fs');
+const path = require('path');
 
 exports.getUserQuery = function(str) {
-  console.log(str);
+
 }
 
 // Our IR model
