@@ -10,8 +10,9 @@ const gs = require('./getGeoJson');
 var article='./splitData/1.json'
 query("eye");
 
-
-
+exports.getUserQuery = function(str) {
+    gs.generateGEOJSON();
+}
 function TextOperation(){
     fs.readFile(article,"utf-8",function(err,data){
     if (err) throw err
@@ -40,9 +41,6 @@ function TextOperation(){
            teacher.get(id).push(title);
        }
      }
-    
-    console.log(teacher);
-    
    
     fs.writeFile(article, JSON.stringify(obj), function(err){
           if(err){
@@ -64,11 +62,8 @@ function TextOperation(){
         if(err) console.log(err);
     });
     });
-
-
-exports.getUserQuery = function(str) {
-    gs.generateGEOJSON();
 }
+
 
 function tokenize(string)
 {
@@ -97,7 +92,7 @@ function query(string)
     var obj = JSON.parse(data);
  
     string=tokenize(string);
-    var tem=[];
+    var tem=new Map();
     var id=new Set();
     for (var i in obj)
     {
@@ -106,35 +101,21 @@ function query(string)
           if(string==obj[i]["keyWord"][j])
             {
                 var teacherid=obj[i].name+"//"+obj[i].institution;
-                
                 if (!id.has(teacherid))
-                    tem.push(teacherid.split("//"));
+                {
+                    tem.set(teacherid,1);
                     id.add(teacherid);
+                }
+                else
+                {
+                    var count = tem.get(teacherid)+1;
+                    tem.set(teacherid,count);
+                }
                 break;
             }
       }
     }
+    console.log(tem);
     return tem;
     });
 }
-
-
-
-
-
-
-
-
-
-// exports.getUserQuery = function(str) {
-//   console.log(str);
-// }
-
-// Our IR model
-
-
-
-
-
-
-// Return List [{Teacher, school}]
