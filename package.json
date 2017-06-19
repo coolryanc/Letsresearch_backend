@@ -26,9 +26,11 @@
     "eventproxy": "^0.3.5",
     "express": "^4.15.3",
     "fs": "0.0.1-security",
+    "natural": "^0.5.3",
     "nightmare": "^2.10.0",
     "phantom": "^4.0.4",
     "request": "^2.81.0",
+    "stopword": "^0.1.1",
     "superagent": "^3.5.2",
     "vo": "^4.0.2"
   },
