@@ -27,6 +27,7 @@
     "express": "^4.15.3",
     "fs": "0.0.1-security",
     "natural": "^0.5.3",
+    "geojson": "^0.4.1",
     "nightmare": "^2.10.0",
     "phantom": "^4.0.4",
     "request": "^2.81.0",

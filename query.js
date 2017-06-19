@@ -1,7 +1,10 @@
-var stopword = require('stopword');
-var fs = require('fs');
-var natural = require('natural')
 
+var stopword = require('stopword');
+var natural = require('natural')
+const GeoJSON = require('geojson');
+const fs = require('fs');
+const path = require('path');
+const gs = require('./getGeoJson');
 
 // console.log(g);
 var article='./splitData/1.json'
@@ -61,6 +64,10 @@ function TextOperation(){
         if(err) console.log(err);
     });
     });
+
+
+exports.getUserQuery = function(str) {
+    gs.generateGEOJSON();
 }
 
 function tokenize(string)

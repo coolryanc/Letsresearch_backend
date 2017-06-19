@@ -29,13 +29,13 @@ var getPaperAbstract = function * (jsonData) {
         // console.log(jsonData[index]);
       })
       .then(function () {
-        let savefilePath = path.join(__dirname, 'schoolData', 'articlesKeywoed.json');
+        let savefilePath = path.join(__dirname, 'splitData', '2.json');
         fs.writeFile(savefilePath, JSON.stringify(jsonData), function(err){
           if(err){
             console.log('Can\'t record.');
           }
           else{
-            console.log('Finish recording');
+            // console.log('Finish recording');
           }
         });// End write file
       })
@@ -46,7 +46,7 @@ var getPaperAbstract = function * (jsonData) {
 }
 
 
-let filePath = path.join(__dirname, 'schoolData', 'test.json');
+let filePath = path.join(__dirname, 'splitData', 'articles2.json');
 fs.readFile(filePath,'utf8',function(err,data){
   if(err){
     console.log('Read json error');
