@@ -8,7 +8,7 @@ const gs = require('./getGeoJson');
 
 // console.log(g);
 var article='./splitData/1.json'
-query("eye");
+query("eye tracking");
 
 exports.getUserQuery = function(str) {
     gs.generateGEOJSON();
@@ -92,13 +92,17 @@ function query(string)
     var obj = JSON.parse(data);
  
     string=tokenize(string);
+    console.log(string)
     var tem=new Map();
     var id=new Set();
+    string.forEach(function(element) {
+    console.log(element);
+    
     for (var i in obj)
     {
       for (var j in obj[i]["keyWord"])
       {
-          if(string==obj[i]["keyWord"][j])
+          if(element==obj[i]["keyWord"][j])
             {
                 var teacherid=obj[i].name+"//"+obj[i].institution;
                 if (!id.has(teacherid))
@@ -115,6 +119,10 @@ function query(string)
             }
       }
     }
+
+        
+    }, this);
+   
     console.log(tem);
     return tem;
     });
