@@ -1,4 +1,3 @@
-
 var stopword = require('stopword');
 var natural = require('natural')
 const GeoJSON = require('geojson');
@@ -7,14 +6,18 @@ const path = require('path');
 const gs = require('./getGeoJson');
 
 // console.log(g);
-var article='./splitData/1.json'
-query("eye");
+var oldarticle="./schoolData/articleKeyword.json"
+var article='./splitData/test.json' //new
+// query("eye");
 
 exports.getUserQuery = function(str) {
     gs.generateGEOJSON();
+    // TextOperation();
+    query(str);
 }
+
 function TextOperation(){
-    fs.readFile(article,"utf-8",function(err,data){
+    fs.readFile(oldarticle,"utf-8",function(err,data){
     if (err) throw err
     var obj = JSON.parse(data);
     var teacher=new Map();
@@ -34,14 +37,14 @@ function TextOperation(){
         //    console.log(id);
            var work=[];
            work.push(title);
-           teacher.set(id,work); 
+           teacher.set(id,work);
        }
        else
        {
            teacher.get(id).push(title);
        }
      }
-   
+
     fs.writeFile(article, JSON.stringify(obj), function(err){
           if(err){
             console.log(err);
@@ -74,7 +77,7 @@ function tokenize(string)
     // console.log(string);
     // string=string.replace(/(less)/gi)," ";
     string=string.toLowerCase().split(" ");
-    
+
     string=stopword.removeStopwords(string);
 
     for (var i in string)
@@ -90,7 +93,7 @@ function query(string)
     fs.readFile(article,"utf-8",function(err,data){
     if (err) throw err
     var obj = JSON.parse(data);
- 
+
     string=tokenize(string);
     var tem=new Map();
     var id=new Set();
