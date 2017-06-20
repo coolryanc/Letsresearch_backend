@@ -36,10 +36,9 @@ exports.generateGEOJSON = function(str) {
 }
 
 exports.generateTest = function(str) {
-  queryCalc.getUserQuery(str, function(){
-    console.log('fourth');
-    // for (var key of result.keys()) {
-    //   console.log(key);
-    // }
+  queryCalc.getUserQuery(str, function(result){
+    for (var key of result.keys()) {
+      console.log(key);
+    }
   });
 }
