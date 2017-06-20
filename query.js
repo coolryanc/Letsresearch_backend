@@ -8,7 +8,7 @@ const gs = require('./getGeoJson');
 
 // console.log(g);
 var article='./splitData/1.json'
-query("eye tracking");
+query("augmented reality mobile");
 
 exports.getUserQuery = function(str) {
     gs.generateGEOJSON();
@@ -95,33 +95,47 @@ function query(string)
     console.log(string)
     var tem=new Map();
     var id=new Set();
-    string.forEach(function(element) {
-    console.log(element);
+    console.log(typeof obj[0]["keyWord"]);
+
+    console.log(obj[0].keyWord.indexOf(string[0]));
+ 
     
     for (var i in obj)
     {
-      for (var j in obj[i]["keyWord"])
-      {
-          if(element==obj[i]["keyWord"][j])
+    //    for (var j in obj[i]["keyWord"])
+    //   {
+            if(obj[i].keyWord.indexOf(string[0])>(-1))
             {
-                var teacherid=obj[i].name+"//"+obj[i].institution;
-                if (!id.has(teacherid))
+                var check=true;
+                if(string.length>1)
                 {
-                    tem.set(teacherid,1);
-                    id.add(teacherid);
+                string.forEach(function(element) {
+                    // console.log(element);
+                    if(obj[i].keyWord.indexOf(element)==-1)
+                    {
+                        check=false;
+                        return;
+                    }}, this);
                 }
-                else
-                {
-                    var count = tem.get(teacherid)+1;
-                    tem.set(teacherid,count);
+                if(check){
+                    var teacherid=obj[i].name+"//"+obj[i].institution;
+                    if (!id.has(teacherid))
+                    {
+                        tem.set(teacherid,1);
+                        id.add(teacherid);
+                    }
+                    else
+                    {
+                        var count = tem.get(teacherid)+1;
+                        tem.set(teacherid,count);
+                    }
                 }
-                break;
             }
-      }
+    //   }
     }
 
         
-    }, this);
+   
    
     console.log(tem);
     return tem;
