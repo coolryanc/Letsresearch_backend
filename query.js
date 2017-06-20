@@ -12,33 +12,34 @@ var article='./splitData/test.json' //new
 
 
 exports.getUserQuery = function(str, callback) {
-    TextOperation(function(obj, teacher){
-      console.log('third');
-      fs.writeFile(article, JSON.stringify(obj), function(err){
-            if(err){
-              console.log(err);
-            }
-          });
-       teacher_list=[]
-       for (let [k,v] of teacher)
-       {
-           var tem_teacher={};
-           tem_teacher.id=k;
-           tem_teacher.work=v;
-           teacher_list.push(tem_teacher);
-       }
-
-      // console.log(teacher_list);
-      fs.writeFile("teacher.json",JSON.stringify(teacher_list,null,4),function(err)
-      {
-          if(err) console.log(err);
-      });
-    });
-
-    // query(str, function(tem) {
-    //   console.log('B');
-    //   callback(tem);
+    // TextOperation(function(obj, teacher){
+    //   console.log('third');
+    //   fs.writeFile(article, JSON.stringify(obj), function(err){
+    //         if(err){
+    //           console.log(err);
+    //         }
+    //       });
+    //    teacher_list=[]
+    //    for (let [k,v] of teacher)
+    //    {
+    //        var tem_teacher={};
+    //        tem_teacher.id=k;
+    //        tem_teacher.work=v;
+    //        teacher_list.push(tem_teacher);
+    //    }
+    //
+    //   // console.log(teacher_list);
+    //   fs.writeFile("teacher.json",JSON.stringify(teacher_list,null,4),function(err)
+    //   {
+    //       if(err) console.log(err);
+    //   });
+    //   callback();
     // });
+
+    query(str, function(tem) {
+      console.log('B');
+      callback(tem);
+    });
 }
 
 function TextOperation(callback){
