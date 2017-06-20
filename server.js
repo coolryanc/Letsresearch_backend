@@ -6,6 +6,7 @@ const path = require('path');
 
 var app = express();
 const queryCalc = require('./query');
+const gs = require('./getGeoJson');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -25,7 +26,7 @@ app.all('*',function (req, res, next) {
 
 app.get('/submit-data', function (req, res) {
     console.log(req.query.searchString); // Get user query
-    queryCalc.getUserQuery(req.query.searchString);
+    gs.generateTest(req.query.searchString);
     res.sendStatus(200);
 });
 

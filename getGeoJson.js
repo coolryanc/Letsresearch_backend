@@ -1,6 +1,7 @@
 const GeoJSON = require('geojson');
 const fs = require('fs');
 const path = require('path');
+const queryCalc = require('./query');
 
 exports.generateGEOJSON = function(str) {
   let filePath = path.join(__dirname, 'schoolData', 'schoolInfo_latlong.json');
@@ -31,5 +32,14 @@ exports.generateGEOJSON = function(str) {
         }
       });//  End write file
     }
+  });
+}
+
+exports.generateTest = function(str) {
+  queryCalc.getUserQuery(str, function(){
+    console.log('fourth');
+    // for (var key of result.keys()) {
+    //   console.log(key);
+    // }
   });
 }
