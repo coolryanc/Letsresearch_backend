@@ -26,8 +26,9 @@ app.all('*',function (req, res, next) {
 
 app.get('/submit-data', function (req, res) {
     console.log(req.query.searchString); // Get user query
-    gs.generateResult(req.query.searchString);
-    res.sendStatus(200);
+    gs.generateResult(req.query.searchString, function(apiData){
+      res.json(apiData);
+    });
 });
 
 app.use(require('./query-router'));

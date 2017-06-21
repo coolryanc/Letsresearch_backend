@@ -35,7 +35,7 @@ exports.generateGEOJSON = function(str) {
   });
 }
 
-exports.generateResult = function(str) {
+exports.generateResult = function(str, callback) {
   generateAPIData(str, function(apiData){
     let filePath = path.join(__dirname, 'schoolData', 'result.json');
     fs.writeFile(filePath, JSON.stringify(apiData), function(err){
@@ -43,6 +43,7 @@ exports.generateResult = function(str) {
         console.log('Can\'t record.');
       }
       else{
+        callback(apiData);
         console.log('Finish recording');
       }
     });// End write file
