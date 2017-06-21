@@ -75,18 +75,25 @@ function generateAPIData (str, callback) {
               let item = {
                 'prof': profName,
                 'school': schoolName,
-                'rank': 600,
+                'rank': 502,
                 'paper': profData[profData.map(function(x){return x.id;}).indexOf(key)].work,
+                'queryPaper': value,
                 'page': profData[profData.map(function(x){return x.id;}).indexOf(key)].page,
-                'latlong': ['39','180']
+                'latlong': ['39','180'],
+                'score': 0
               };
               if (schoolRank != -1){
                 item.rank = schoolRank;
                 item.latlong = schoolInfoData['data'][schoolRank].latlong;
               }
-              apiData.push(item);
+              let workRatio = parseFloat(value/item.paper.length);
+              if (workRatio > 0.2){
+                item.score = (0.5*value+20*((502-item.rank)/502));
+                apiData.push(item);
+              }
               // console.log(profName, schoolName, schoolRank, paperNumber);
             } // End for
+            apiData = apiData.sort(function(a,b){return a.score < b.score ? 1:-1;})
             callback(apiData);
           }
         }); // End read prof Data
