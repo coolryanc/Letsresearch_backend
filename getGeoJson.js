@@ -68,6 +68,7 @@ function generateAPIData (str, callback) {
             let apiData = [];
             let profData = JSON.parse(profdata);
             let schoolInfoData = JSON.parse(data);
+            console.log(result.size);
             for (let [key, value] of result.entries()) {
               let profName = key.split('//')[0];
               let schoolName = key.split('//')[1];
@@ -77,7 +78,7 @@ function generateAPIData (str, callback) {
                 'prof': profName,
                 'school': schoolName,
                 'rank': 502,
-                'paper': profData[profData.map(function(x){return x.id;}).indexOf(key)].work,
+                'paper': profData[profData.map(function(x){return x.id;}).indexOf(key)].work.length,
                 'queryPaper': value,
                 'page': profData[profData.map(function(x){return x.id;}).indexOf(key)].page,
                 'latlong': ['39','180'],
@@ -87,9 +88,17 @@ function generateAPIData (str, callback) {
                 item.rank = schoolRank;
                 item.latlong = schoolInfoData['data'][schoolRank].latlong;
               }
-              let workRatio = parseFloat(value/item.paper.length);
+              let workRatio = parseFloat(value/item.paper);
               if (workRatio > 0.2){
-                item.score = (0.5*value+20*((502-item.rank)/502));
+                // item.score=workRatio*(item.paper-1)+0.5*(502-item.rank)/502;
+                item.score=0.9*workRatio/0.3*(item.paper-1)/item.paper+0.3*(item.paper/5+item.paper%5)+1*(502-item.rank)/502;
+                item.score+=0.5*(25-item.rank/20-0.01*item.rank%20);
+                 
+                
+    
+                // item.score = (0.5*(item.paper-1)*value/result.size+0.5*Math.pow(2,502-item.rank))+0.05*workRatio;
+                // console.log(result.size);
+                // console.log(value);
                 apiData.push(item);
               }
               // console.log(profName, schoolName, schoolRank, paperNumber);
