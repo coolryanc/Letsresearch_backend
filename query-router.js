@@ -4,15 +4,15 @@ const path = require('path');
 
 var app = module.exports = express.Router();
 
-app.get('/api/test', function (req, res) {
-  let filePath = path.join(__dirname, 'schoolData', 'schoolInfo_latlong.json');
+app.get('/api/result', function (req, res) {
+  let filePath = path.join(__dirname, 'schoolData', 'result.json');
   fs.readFile(filePath,'utf8',function(err,data){
     if(err){
       console.log('Read json error');
     }
     else{
       let jsonData = JSON.parse(data);
-      res.json(jsonData['data']);
+      res.json(jsonData);
     }
   });
 });

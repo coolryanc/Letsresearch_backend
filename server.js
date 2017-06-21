@@ -26,7 +26,7 @@ app.all('*',function (req, res, next) {
 
 app.get('/submit-data', function (req, res) {
     console.log(req.query.searchString); // Get user query
-    gs.generateTest(req.query.searchString);
+    gs.generateResult(req.query.searchString);
     res.sendStatus(200);
 });
 
