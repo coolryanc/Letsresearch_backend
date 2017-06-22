@@ -37,16 +37,7 @@ exports.generateGEOJSON = function(str) {
 
 exports.generateResult = function(str, callback) {
   generateAPIData(str, function(apiData){
-    let filePath = path.join(__dirname, 'schoolData', 'result.json');
-    fs.writeFile(filePath, JSON.stringify(apiData), function(err){
-      if(err){
-        console.log('Can\'t record.');
-      }
-      else{
-        callback(apiData);
-        console.log('Finish recording');
-      }
-    });// End write file
+    callback(apiData);
   });
 }
 
@@ -92,6 +83,7 @@ function generateAPIData (str, callback) {
               let workRatio = parseFloat(value/item.paper);
               if (workRatio > 0.2){
                 // item.score=workRatio*(item.paper-1)+0.5*(502-item.rank)/502;
+<<<<<<< HEAD
                 if (item.paper>1)
                 {
                   item.score=Math.floor(workRatio/0.25)*0.25+0.4*(Math.floor(item.paper/5)+0.15*item.paper%5);
@@ -112,6 +104,10 @@ function generateAPIData (str, callback) {
                 
                 
     
+=======
+                item.score=0.9*workRatio/0.3*(item.paper-1)/item.paper+0.3*(item.paper/5+item.paper%5)+1*(502-item.rank)/502;
+                item.score+=0.5*(25-item.rank/20-0.01*item.rank%20);
+>>>>>>> 7e41c98e3e7cde58b2e5a347944d60753dc68386
                 // item.score = (0.5*(item.paper-1)*value/result.size+0.5*Math.pow(2,502-item.rank))+0.05*workRatio;
                 // console.log(result.size);
                 // console.log(value);
