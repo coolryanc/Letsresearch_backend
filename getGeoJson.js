@@ -37,16 +37,7 @@ exports.generateGEOJSON = function(str) {
 
 exports.generateResult = function(str, callback) {
   generateAPIData(str, function(apiData){
-    let filePath = path.join(__dirname, 'schoolData', 'result.json');
-    fs.writeFile(filePath, JSON.stringify(apiData), function(err){
-      if(err){
-        console.log('Can\'t record.');
-      }
-      else{
-        callback(apiData);
-        console.log('Finish recording');
-      }
-    });// End write file
+    callback(apiData);
   });
 }
 
@@ -77,7 +68,7 @@ function generateAPIData (str, callback) {
                 'prof': profName,
                 'school': schoolName,
                 'rank': 502,
-                'paper': profData[profData.map(function(x){return x.id;}).indexOf(key)].work,
+                'paper': profData[profData.map(function(x){return x.id;}).indexOf(key)].work.length,
                 'queryPaper': value,
                 'page': profData[profData.map(function(x){return x.id;}).indexOf(key)].page,
                 'latlong': ['39','180'],
@@ -87,7 +78,7 @@ function generateAPIData (str, callback) {
                 item.rank = schoolRank;
                 item.latlong = schoolInfoData['data'][schoolRank].latlong;
               }
-              let workRatio = parseFloat(value/item.paper.length);
+              let workRatio = parseFloat(value/item.paper);
               if (workRatio > 0.2){
                 item.score = (0.5*value+20*((502-item.rank)/502));
                 apiData.push(item);
