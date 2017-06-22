@@ -59,7 +59,7 @@ function generateAPIData (str, callback) {
             let apiData = [];
             let profData = JSON.parse(profdata);
             let schoolInfoData = JSON.parse(data);
-            console.log(result.size);
+            // console.log(result.size);
             for (let [key, value] of result.entries()) {
               let profName = key.split('//')[0];
               let schoolName = key.split('//')[1];
@@ -73,11 +73,13 @@ function generateAPIData (str, callback) {
                 'queryPaper': value,
                 'page': profData[profData.map(function(x){return x.id;}).indexOf(key)].page,
                 'latlong': ['39','180'],
-                'score': 0
+                'score': 0,
+                'region': ''
               };
               if (schoolRank != -1){
                 item.rank = schoolRank;
                 item.latlong = schoolInfoData['data'][schoolRank].latlong;
+                item.region = schoolInfoData['data'][schoolRank].region;
               }
               let workRatio = parseFloat(value/item.paper);
               if (workRatio > 0.2){
