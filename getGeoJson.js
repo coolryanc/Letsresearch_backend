@@ -82,7 +82,8 @@ function generateAPIData (str, callback) {
                 'queryPaper': value,
                 'page': profData[profData.map(function(x){return x.id;}).indexOf(key)].page,
                 'latlong': ['39','180'],
-                'score': 0
+                'score': 0,
+              
               };
               if (schoolRank != -1){
                 item.rank = schoolRank;
@@ -91,9 +92,24 @@ function generateAPIData (str, callback) {
               let workRatio = parseFloat(value/item.paper);
               if (workRatio > 0.2){
                 // item.score=workRatio*(item.paper-1)+0.5*(502-item.rank)/502;
-                item.score=0.9*workRatio/0.3*(item.paper-1)/item.paper+0.3*(item.paper/5+item.paper%5)+1*(502-item.rank)/502;
-                item.score+=0.5*(25-item.rank/20-0.01*item.rank%20);
-                 
+                if (item.paper>1)
+                {
+                  item.score=Math.floor(workRatio/0.25)*0.25+0.4*(Math.floor(item.paper/5)+0.15*item.paper%5);
+                  // item.ratio_score=Math.floor(workRatio/0.25)*0.25;
+                }
+                else
+                {
+                  item.score=0.4*(Math.floor(item.paper/5)+0.15*item.paper%5);
+                }// item.score=Math.floor(workRatio/0.25)*0.25*(item.paper-1)/(item.paper)+0.3*(item.paper/5+item.paper%5)+1*(502-item.rank)/502;
+                // item.paper_score=0.4*(Math.floor(item.paper/5)+0.15*item.paper%5);
+                // item.rank_score=0.3*(25-item.rank/20-0.02*item.rank%20);
+                if(item.rank/20<25)
+                {
+                item.score+=0.3*(25-Math.floor(item.rank/20)-0.02*item.rank%20);
+                }
+                
+                
+                
                 
     
                 // item.score = (0.5*(item.paper-1)*value/result.size+0.5*Math.pow(2,502-item.rank))+0.05*workRatio;
