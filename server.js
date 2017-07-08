@@ -29,6 +29,7 @@ app.get('/submit-data', function (req, res) {
     gs.generateResult(req.query.searchString, function(apiData){
       res.json(apiData);
     });
+    gs.generateGEOJSON();
 });
 
 app.use(require('./query-router'));

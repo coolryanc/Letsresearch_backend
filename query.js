@@ -37,7 +37,7 @@ exports.getUserQuery = function(str, callback) {
     // });
 
     query(str, function(tem) {
-      console.log('B');
+      // console.log('B');
       callback(tem);
     });
 }
@@ -144,7 +144,7 @@ function query(string, callback)
              }
      //   }
      }
-     console.log('A');
+    //  console.log('A');
      callback(tem);
      });
    });

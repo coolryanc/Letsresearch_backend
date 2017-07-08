@@ -1,6 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const gs = require('./getGeoJson');
 
 var app = module.exports = express.Router();
 
@@ -28,4 +29,8 @@ app.get('/api/map', function (req, res) {
       res.json(jsonData);
     }
   });
+});
+
+app.get('/api/random-quote', function(req, res) {
+  res.status(200).send(gs.getRandomOne());
 });
